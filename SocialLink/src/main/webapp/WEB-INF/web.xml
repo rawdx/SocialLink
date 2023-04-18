@@ -5,17 +5,31 @@
 	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="5.0">
 	<display-name>SocialLink</display-name>
+
 	<servlet>
 		<description>
 		</description>
-		<display-name>LoginAuthenticator</display-name>
-		<servlet-name>LoginAuthenticator</servlet-name>
-		<servlet-class>database.LoginAuthenticator</servlet-class>
+		<display-name>SignInAuthenticator</display-name>
+		<servlet-name>SignInAuthenticator</servlet-name>
+		<servlet-class>database.SignInAuthenticator</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>LoginAuthenticator</servlet-name>
-		<url-pattern>/LoginAuthenticator</url-pattern>
+		<servlet-name>SignInAuthenticator</servlet-name>
+		<url-pattern>/SignInAuthenticator</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<description>
+		</description>
+		<display-name>SignUpAuthenticator</display-name>
+		<servlet-name>SignUpAuthenticator</servlet-name>
+		<servlet-class>database.SignUpAuthenticator</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignUpAuthenticator</servlet-name>
+		<url-pattern>/SignUpAuthenticator</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>

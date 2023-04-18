@@ -11,13 +11,22 @@ import java.sql.Statement;
 public class Conector {
 
 	private Connection cn;
+	
+	private String url = "jdbc:mysql://34.125.241.9/SLDB";
+    private String user = "sladmin";
+    private String password = "32rnw9Skfj.";
 
-	public void connect() throws SQLException {
-		cn = DriverManager.getConnection("jdbc:mysql://34.125.241.9/SLDB", "sladmin", "32rnw9Skfj.");
-	}
-
-	public void connect(String url, String user, String password) throws SQLException {
-		cn = DriverManager.getConnection(url, user, password);
+	public void connect() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			cn = DriverManager.getConnection(url, user, password);
+		}
+		catch(ClassNotFoundException e) {
+			System.err.println(e.getMessage());
+		}
+		catch(SQLException e) { 
+			System.err.println("Error al conectar con la base de datos: " + e.getMessage());
+		}
 	}
 
 	public void disconnect() {
@@ -38,7 +47,7 @@ public class Conector {
 	    }
 	}
 	
-	public String[][] getData(String query) throws SQLException {
+	public String[][] getData(String query) {
 	    ResultSet rs = null;
 	    String[][] result = null;
 
@@ -58,7 +67,11 @@ public class Conector {
 	        System.err.println("Error en la consulta: " + e.getMessage());
 	    } finally {
 	        if (rs != null) {
-	            rs.close();
+	            try {
+					rs.close();
+				} catch (SQLException e) {
+					System.out.println(e);
+				}
 	        }
 	    }
 	    return result;

@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,40 +7,45 @@
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"></script>
     <link rel="stylesheet" href="common/css/style.css">
-    <script src="common/js/functions.js"></script>
+    <script src="common/js/main.js"></script>
     <title>SocialLink</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="./LoginAuthenticator" method="post" class="sign-in-form" name="login">
-            <h2 class="title">Login</h2>
+          <form action="./SignInAuthenticator" method="post" class="sign-in-form" name="signIn">
+            <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" name="user" onkeypress="return comprobarLogin(event)" placeholder="Username" />
+              <input type="text" name="username" onkeypress="return validarEntrada(event)" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" name="pass" onkeypress="return comprobarLogin(event)" placeholder="Password" />
+              <input type="password" name="password" onkeypress="return validarEntrada(event)" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn solid" name="send" onclick="enviarLogin()"/>
+            <input type="button" value="Sign in" class="btn solid" onclick="enviarSignIn()" />
           </form>
-          <form action="#" class="sign-up-form">
+          <form action="./SignUpAuthenticator" method="post" class="sign-up-form" name="signUp">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" name="username" onkeypress="return validarEntrada(event)" placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" name="email" onkeypress="return validarEntrada(event)" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" name="password" onkeypress="return validarEntrada(event)" placeholder="Password" />
             </div>
-            <input type="submit" class="btn" value="Sign up" />
+            <input type="button" value="Sign up" class="btn" onclick="enviarSignUp()" />
+            <% if (request.getParameter("error") != null) { %>
+  <div class="error-message">
+    <%= request.getParameter("error") %>
+  </div>
+<% } %>
           </form>
         </div>
       </div>
@@ -64,7 +70,7 @@
               Sign in to your account to continue where you left off.
             </p>
             <button class="btn transparent" id="sign-in-btn">
-              Login
+              Sign in
             </button>
           </div>
           <img src="common/img/register.svg" class="image" alt="" />

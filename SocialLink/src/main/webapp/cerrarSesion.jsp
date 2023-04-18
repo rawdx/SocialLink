@@ -12,6 +12,6 @@ session.invalidate();
 </head>
 <body>
 Sesión Cerrada.<br/>
-<a href="login.jsp">Volver</a>
+<a href="index.jsp">Volver</a>
 </body>
 </html>
