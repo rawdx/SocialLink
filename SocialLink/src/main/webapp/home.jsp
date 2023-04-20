@@ -18,11 +18,18 @@ try {
 %>
 <meta charset="UTF-8">
 <title>SocialLink</title>
-<link rel="stylesheet" href="common/css/main.css">
+<link rel="stylesheet" href="common/css/style.css">
+<script src="common/js/main.js"></script>
 </head>
 
 <body>
 	<p>Principal</p>
+	<form method="post" action="/publicar">
+		<label for="titulo">Título:</label> <input type="text" id="titulo"
+			name="titulo"><br> <label for="contenido">Contenido:</label>
+		<textarea id="contenido" name="contenido"></textarea>
+		<br> <input type="submit" value="Publicar">
+	</form>
 </body>
 
 </html>

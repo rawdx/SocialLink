@@ -33,7 +33,7 @@ public class SignUpAuthenticator extends HttpServlet {
 			response.sendRedirect("index.jsp?error=El nombre de usuario ya ha sido registrado. Por favor, elija otro.");
 			return;
 		}
-
+		
 		db.execute("INSERT INTO Users (username, email, password) VALUES ('" + username + "','" + email + "', AES_ENCRYPT('" + password + "', '14564rec.'))");
 		
 		response.sendRedirect("index.jsp");

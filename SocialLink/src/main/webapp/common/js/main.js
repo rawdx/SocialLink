@@ -24,8 +24,12 @@ function enviarSignUp() {
 	datos = document.signUp;
 	if (datos.username.value == '' || datos.password.value == '' || datos.email.value == '') {
 		alert('¡Tienes que rellenar todos los campos!');
+	} else if(datos.username.value.length < 5){
+		alert('El nombre de usuario debe tener al menos 5 caracteres.');
+	} else if(!/^(?=.*\d)[A-Za-z\d]{7,}$/.test(datos.password.value)){
+		alert('La contraseña debe tener al menos un número y 7 caracteres.');
 	} else if (!/.*@.*/.test(datos.email.value)) {
-		alert('El campo de email debe contener "@"');
+		alert('El email debe contener "@"');
 	}
 	else datos.submit();
 }

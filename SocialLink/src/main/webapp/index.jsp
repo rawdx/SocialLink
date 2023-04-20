@@ -41,11 +41,6 @@
               <input type="password" name="password" onkeypress="return validarEntrada(event)" placeholder="Password" />
             </div>
             <input type="button" value="Sign up" class="btn" onclick="enviarSignUp()" />
-            <% if (request.getParameter("error") != null) { %>
-  <div class="error-message">
-    <%= request.getParameter("error") %>
-  </div>
-<% } %>
           </form>
         </div>
       </div>
@@ -77,6 +72,13 @@
         </div>
       </div>
     </div>
+
+<% if (request.getParameter("error") != null) { %>
+  <script>
+    alert("<%= request.getParameter("error") %>");
+    window.location.href = window.location.href.split("?")[0];
+  </script>
+<% } %>
 
     <script src="common/js/app.js"></script>
   </body>
