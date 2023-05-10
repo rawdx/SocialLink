@@ -11,15 +11,11 @@ import java.sql.Statement;
 public class Conector {
 
 	private Connection cn;
-	
-	private String url = "jdbc:mysql://34.125.241.9/SLDB";
-    private String user = "sladmin";
-    private String password = "32rnw9Skfj.";
 
 	public void connect() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			cn = DriverManager.getConnection(url, user, password);
+			cn = DriverManager.getConnection(Claves.getUrl(), Claves.getUser(), Claves.getPassword());
 		}
 		catch(ClassNotFoundException e) {
 			System.err.println(e.getMessage());

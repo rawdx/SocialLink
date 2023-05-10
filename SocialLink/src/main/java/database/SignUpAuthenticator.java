@@ -34,7 +34,7 @@ public class SignUpAuthenticator extends HttpServlet {
 			return;
 		}
 		
-		db.execute("INSERT INTO Users (username, email, password) VALUES ('" + username + "','" + email + "', AES_ENCRYPT('" + password + "', '14564rec.'))");
+		db.execute("INSERT INTO Users (username, email, password) VALUES ('" + username + "','" + email + "', AES_ENCRYPT('" + password + "', '"+ Claves.getClaveSql() +"'))");
 		
 		response.sendRedirect("index.jsp");
 		
