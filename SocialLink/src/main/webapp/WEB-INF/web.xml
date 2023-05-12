@@ -29,7 +29,19 @@
 		<servlet-name>SignUpAuthenticator</servlet-name>
 		<url-pattern>/SignUpAuthenticator</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<description>
+		</description>
+		<display-name>AceptarSolicitud</display-name>
+		<servlet-name>AceptarSolicitud</servlet-name>
+		<servlet-class>database.AceptarSolicitud</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AceptarSolicitud</servlet-name>
+		<url-pattern>/AceptarSolicitud</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>

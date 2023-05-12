@@ -27,7 +27,7 @@ public class SignInAuthenticator extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		String[][] user = db.getData("SELECT username, AES_DECRYPT(password,'14564rec.') FROM Users WHERE username LIKE '" + username + "';");
+		String[][] user = db.getData("SELECT username, AES_DECRYPT(password,'14564rec.'), id_user FROM Users WHERE username LIKE '" + username + "';");
 		
 		if(user == null){
 			db.disconnect();
@@ -38,6 +38,7 @@ public class SignInAuthenticator extends HttpServlet {
 		if (username.equals(user[0][0]) && password.equals(user[0][1])) {
 			session.setAttribute("atributo1", username);
 			session.setAttribute("atributo2", "1");
+			session.setAttribute("atributo3", user[0][2]); 
 
 			response.sendRedirect("home.jsp");
 		} else

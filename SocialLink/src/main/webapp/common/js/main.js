@@ -33,3 +33,12 @@ function enviarSignUp() {
 	}
 	else datos.submit();
 }
+
+function enviarSolicitud(accion) {
+	if (accion == 0) {
+		document.soli
+	} else {
+		
+	}
+	datos = document.solicitud;
+}

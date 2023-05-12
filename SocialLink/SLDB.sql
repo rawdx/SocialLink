@@ -4,3 +4,10 @@ CREATE TABLE IF NOT EXISTS Users (
      email VARCHAR(50) NOT NULL,
      password VARBINARY(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS Amistades (
+	 id_amistad INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+     user1 INT NOT NULL,
+     user2 INT NOT NULL,
+     estado TINYINT NOT NULL
+);
